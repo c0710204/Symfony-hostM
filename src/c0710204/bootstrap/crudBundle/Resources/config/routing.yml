@@ -1,0 +1,3 @@
+c0710204bootstrapcrud_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: c0710204bootstrapcrudBundle:Default:index }

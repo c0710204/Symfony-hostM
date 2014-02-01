@@ -1,0 +1,3 @@
+c0710204adminsettings_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: c0710204adminsettingsBundle:Default:index }

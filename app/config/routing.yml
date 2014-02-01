@@ -1,0 +1,32 @@
+c0710204mirror_sitesite:
+    resource: "@c0710204mirrorSitesiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+c0710204adminsettings:
+    resource: "@c0710204adminsettingsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+c0710204bootstrapcrud:
+    resource: "@c0710204bootstrapcrudBundle/Resources/config/routing.yml"
+    prefix:   /
+
+c0710204mirror_site_manager:
+    resource: "@c0710204mirrorSiteManagerBundle/Resources/config/routing.yml"
+    prefix:   /
+
+c0710204testsy2:
+    resource: "@c0710204testsy2Bundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+user:
+    resource: 'routing_user.yml'
+    prefix: /user
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+

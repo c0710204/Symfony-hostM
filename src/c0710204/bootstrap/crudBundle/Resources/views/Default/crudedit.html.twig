@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204bootstrapcrudBundle:Default:js.html.twig' %}
+{% form_theme edit_form 'c0710204bootstrapcrudBundle:Default:form_bootstrap_layout.html.twig' %}
+{% block body -%}
+<div class="container">
+    <h1>{% block crud_title_edit %}{% endblock %}</h1>
+    <div class='row'>
+    	<div class='col-md-8'>
+    		{{ form(edit_form) }}
+    	</div>		
+	</div>	
+    <ul class="record_actions list-inline">
+    <li>
+        <a class='btn btn-default' href="{% block crud_list %}{% endblock %}">
+            返回
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+</div>
+{% endblock %}

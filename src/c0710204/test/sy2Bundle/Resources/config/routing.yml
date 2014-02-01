@@ -1,0 +1,6 @@
+c0710204testsy2_host:
+    resource: "@c0710204testsy2Bundle/Resources/config/routing/host.yml"
+    prefix:   /host
+c0710204testsy2_books:
+    resource: "@c0710204testsy2Bundle/Resources/config/routing/books.yml"
+    prefix:   /books

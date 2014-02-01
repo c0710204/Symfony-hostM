@@ -1,0 +1,7 @@
+parameters:
+#    c0710204bootstrapcrud.example.class: c0710204\bootstrap\crudBundle\Example
+
+services:
+#    c0710204bootstrapcrud.example:
+#        class: %c0710204bootstrapcrud.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

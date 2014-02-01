@@ -1,0 +1,7 @@
+parameters:
+#    c0710204mirror_sitesite.example.class: c0710204\mirrorSite\siteBundle\Example
+
+services:
+#    c0710204mirror_sitesite.example:
+#        class: %c0710204mirror_sitesite.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

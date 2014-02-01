@@ -1,0 +1,70 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204bootstrapcrudBundle:Default:js.html.twig' %}
+{% block body -%}   
+<div class="container">
+    <h1>
+        {% block crud_title_list %}{% endblock %}
+    </h1>        
+    <a class="btn btn-default" href="{% block crud_new %}{% endblock %}">
+        <span class="glyphicon glyphicon-plus"></span>
+    </a>   
+    <!--     
+    <button class="btn btn-primary btn-lg" data-toggle="modal"  onclick="loader('#myModal')">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+    -->
+    {% block crud_toolbar %}{% endblock %}
+    
+    <!-- Modal -->
+    <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
+     
+    </div>
+    <!-- /.modal -->
+    <table class="records_list table_hover table" id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                {% block crud_table_head %}{% endblock %}
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{% block crud_table_row_id %}{% endblock %}">{{ entity.id }}</a></td>
+                {% block crud_table_row %}{% endblock %}
+                <td>
+                    <a class="btn-sm btn-default" href="{% block crud_table_row_edit %}{{ path('host_edit', { 'id': entity.id }) }}{% endblock %}">
+                        <span class="glyphicon glyphicon-edit"></span>编辑
+                    </a>                    
+                    <a class="btn-sm btn-default" href="{% block crud_table_row_show %}{{ path('host_show', { 'id': entity.id }) }}{% endblock %}">
+                        详情<span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% block javascripts -%}
+{{parent()}}
+<script type="text/javascript">
+	function tableinit(){$("#table").tablesorter();}
+
+	tableinit();
+function loader(jqid)
+{
+$.ajax({
+    type: 'GET',
+	url: "{% block crud_newmodal %}{{ path('host_newmodal') }}{% endblock %}",
+    dataType: 'html',
+    data: {},
+})
+.done(function(data1) {
+    $(jqid).html(data1);
+    $(jqid).modal();
+});
+}
+</script>
+{% endblock %}

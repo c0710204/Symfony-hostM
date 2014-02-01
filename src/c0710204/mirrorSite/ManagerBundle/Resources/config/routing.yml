@@ -1,0 +1,27 @@
+c0710204mirror_site_manager_homepage:
+    pattern:  /mirror/
+    defaults: { _controller: c0710204mirrorSiteManagerBundle:Default:index }
+mirror_info:
+    resource: "@c0710204mirrorSiteManagerBundle/Controller/mirrorinfoController.php"
+    type:     annotation
+    prefix:   /mirror/
+mirror_apt:
+    resource: "@c0710204mirrorSiteManagerBundle/Controller/mirroraptController.php"
+    type:     annotation
+    prefix:   /mirror/
+mirror_cmd:
+    resource: "@c0710204mirrorSiteManagerBundle/Controller/mirrorcmdController.php"
+    type:     annotation
+    prefix:   /mirror/
+mirrorlog_list:
+    pattern:  /mirror/log
+    defaults: { _controller: c0710204mirrorSiteManagerBundle:log:mirrorloglist }
+mirrorlog_show_timestamp:
+    pattern:  /mirror/log/ts/{logname}
+    defaults: { _controller: c0710204mirrorSiteManagerBundle:log:mirrorlogtimestamp }
+mirrorlog_show_text:
+    pattern:  /mirror/log/text/{logname}
+    defaults: { _controller: c0710204mirrorSiteManagerBundle:log:mirrorlogtext }
+mirrorlog_show:
+    pattern:  /mirror/log/{logname}
+    defaults: { _controller: c0710204mirrorSiteManagerBundle:log:mirrorlogshow }

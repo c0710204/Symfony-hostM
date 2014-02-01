@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204bootstrapcrudBundle:Default:js.html.twig' %}
+{% block body -%}   
+<div class="container">
+    <h1>
+        {% block crud-title %}{% endblock %}
+        <a class="btn btn-default" href="{% block crud-newpath %}{% endblock %}">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>        
+        <button class="btn btn-primary btn-lg" data-toggle="modal"  onclick="loader('#myModal')">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h1>
+    <!-- Modal -->
+    <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
+     
+    </div>
+    <!-- /.modal -->
+    {% block crud-table %}{% endblock %}
+    <table class="records_list table-hover table">
+        <thead>
+            <tr>
+                {% block crud-table-head %}{% endblock %}
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                {% block crud-table-row %}{% endblock %}
+                <td>
+                    <a class="btn btn-default" href="{% block crud-table-row-edit %}{{ path('host_edit', { 'id': entity.id }) }}{% endblock %}">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>                    
+                    <a class="btn btn-default" href="{% block crud-table-row-show %}{{ path('host_show', { 'id': entity.id }) }}{% endblock %}">
+                        Detail<span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<script type="text/javascript">
+function loader(jqid)
+{
+$.ajax({
+    url: '{% block crud-newmodal %}{{ path('host_newmodal') }}{% endblock %}',
+    type: 'GET',
+    dataType: 'html',
+    data: {},
+})
+.done(function(data1) {
+    $(jqid).html(data1);
+    $(jqid).modal();
+});
+}
+</script>
+</div>
+{% endblock %}

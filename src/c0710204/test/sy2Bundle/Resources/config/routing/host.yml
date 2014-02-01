@@ -1,0 +1,41 @@
+host:
+    pattern:  /
+    defaults: { _controller: "c0710204testsy2Bundle:host:index" }
+
+host_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "c0710204testsy2Bundle:host:show" }
+
+host_new:
+    pattern:  /new
+    defaults: { _controller: "c0710204testsy2Bundle:host:new" }
+host_newmodal:
+    pattern:  /newmodal
+    defaults: { _controller: "c0710204testsy2Bundle:host:newmodal"}
+
+host_modal_success:
+    pattern:  /modal_success
+    defaults: { _controller: "c0710204testsy2Bundle:host:modal_success" }
+
+host_create:
+    pattern:  /create
+    defaults: { _controller: "c0710204testsy2Bundle:host:create" }
+    requirements: { _method: post }
+host_createmodal:
+    pattern:  /createmodal
+    defaults: { _controller: "c0710204testsy2Bundle:host:createmodal" }
+    requirements: { _method: post }
+
+host_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "c0710204testsy2Bundle:host:edit" }
+
+host_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "c0710204testsy2Bundle:host:update" }
+    requirements: { _method: post|put }
+
+host_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "c0710204testsy2Bundle:host:delete" }
+    requirements: { _method: post|delete }

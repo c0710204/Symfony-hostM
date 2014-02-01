@@ -1,0 +1,41 @@
+{% extends 'c0710204bootstrapcrudBundle:Default:crudindex.html.twig' %}
+{% block crud_title_list %}
+mirrorapt list
+{% endblock  %}
+{% block crud_toolbar %}
+        <!--prefix:/mirrors/apt -->
+        <a class="btn btn-default" target='_black' type="text/text" href="{{ path('mirrorapt_genmirrorlist', { 'prefix': '\\mirrors\\apt' }) }}">
+            <span class="glyphicon glyphicon-floppy-save"></span>生成mirror.list文件
+        </a>      
+       <a class="btn btn-default" target='_black' type="text/text" href="{{ path('mirrorapt_genmirrorlist2opt', { 'prefix': '\\mirrors\\apt' }) }}">
+            <span class="glyphicon glyphicon-floppy-save"></span>生成mirror.list文件到目标目录
+        </a>      
+        mirror.list在mirrortools根目录中的tools文件夹下
+        <form action='{{ path('mirrorapt_import')}}' Method='post' >
+            <input type='text' name='line' class='col-sm-8' placeholder='此处填入用于source.list的1行apt设定行，必须包含系统类型(deb-i386 http://aaa/ b main c d)'/>
+            <input type='text' name='mirrorname' class='col-sm-2' placeholder='设定对应的软件源名称'/>
+            <input type='submit' class='col-sm-2' value='从设定添加'/>
+        </form>
+{% endblock %}
+{% block crud_table_head %}
+                <th>所属源</th>
+                <th>对应系统类型</th>
+                <th>Url</th>
+                <th>版本</th>
+                <th>软件类型</th>
+{% endblock  %}
+{% block crud_table_row_id %}{{ path('mirrorapt_show', { 'id': entity.id }) }}{% endblock %}
+{% block crud_table_row %}
+
+                <td>
+                    <a href="{{ path('mirrorinfo_show', { 'id': entity.mirrorid.id }) }}">{{ entity.mirrorid }}</a>
+                </td>
+                <td>{{ entity.kind }}</td>
+                <td>{{ entity.url }}</td>
+                <td>{{ entity.version }}</td>
+                <td>{{ entity.softtype }}</td>
+{% endblock %}
+{% block crud_table_row_edit %}{{ path('mirrorapt_edit', { 'id': entity.id }) }}{% endblock %}
+{% block crud_table_row_show %}{{ path('mirrorapt_show', { 'id': entity.id }) }}{% endblock %}
+{% block crud_new %}{{ path('mirrorapt_new') }}{% endblock %}
+{% block crud_newmodal %}{{ path('mirrorapt_new') }}{% endblock %}

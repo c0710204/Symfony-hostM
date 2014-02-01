@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204bootstrapcrudBundle:Default:js.html.twig' %}
+{% block body -%}   
+<div class="container">
+    <h1>日志文件浏览-{{logname}}</h1>
+    <div >
+        <pre id='logcode'></pre>
+    </div>
+<script type="text/javascript">
+var time_now=0;
+ function reloadlog()
+    {
+        $.ajax({
+            url: "{{ path('mirrorlog_show_timestamp', { 'logname': logname }) }}",
+            type: 'GET',
+            dataType: 'html',
+            data: {},
+        })
+        .done(function(data) {
+            console.log("success load timestamp "+data);
+            if (data>time_now)
+            {
+            	time_now=data;
+            	$.ajax({
+            		url: "{{ path('mirrorlog_show_text', { 'logname': logname }) }}",
+            		type: 'GET',
+            		dataType: 'html',
+            		data: {param1: 'value1'},
+            	})
+            	.done(function(data) {
+            		console.log("success load text");
+            		$('#logcode').html(data);
+            	});
+            	
+            }
+        });
+        
+    }
+setInterval(reloadlog,1000);
+</script>
+</div >
+{% endblock %}

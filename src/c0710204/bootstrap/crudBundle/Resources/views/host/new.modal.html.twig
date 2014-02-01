@@ -1,0 +1,20 @@
+{% form_theme form 'c0710204testsy2Bundle:Default:form_bootstrap_layout.modal.html.twig' %}
+<div class="modal-dialog " >
+       <div class="modal-content " id="modal-content" >
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">host creation</h4>
+    </div>
+    <div class="modal-body" >
+        <div class='row'>
+            <div class='col-md-7'>
+               {{ form(form) }}
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->

@@ -1,0 +1,8 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204testsy2Bundle:host:js.html.twig' %}
+{% block body -%}
+<script type="text/javascript">
+alert('success!');
+window.location.assign({{ path('host') }});
+</script>
+{% endblock %}

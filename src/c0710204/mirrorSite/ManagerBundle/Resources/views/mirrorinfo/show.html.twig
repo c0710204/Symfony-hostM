@@ -1,0 +1,52 @@
+{% extends 'c0710204bootstrapcrudBundle:Default:crudshow.html.twig' %}
+{% block crud_title_show %}
+mirrorinfo
+{% endblock %}
+{% block crud_detail %}
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>文件路径</th>
+                <td>{{ entity.rootpath }}</td>
+            </tr>
+            <tr>
+                <th>网址路径</th>
+                <td>{{ entity.href }}</td>
+            </tr>
+            <tr>
+                <th>简介</th>
+                <td>{{ entity.intro }}</td>
+            </tr>
+            <tr>
+                <th>名称</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>标题</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th>是否官方</th>
+                <td>{%- if entity.official %} 是{% else %} 否{% endif -%}</td>
+            </tr>
+            <tr>
+                <th>负责人链接</th>
+                <td>{{ entity.workerLink }}</td>
+            </tr>
+            <tr>
+                <th>负责人</th>
+                <td>{{ entity.workerName }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+{% block crud_list %}
+{{ path('mirrorinfo') }}
+{% endblock %}
+{% block crud_table_row_edit %}
+{{ path('mirrorinfo_edit', { 'id': entity.id }) }}
+{% endblock %}

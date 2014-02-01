@@ -1,0 +1,9 @@
+c0710204mirror_sitesite_homepage:
+    pattern:  /
+    defaults: { _controller: c0710204mirrorSitesiteBundle:Default:index }
+c0710204mirror_sitesite_updatestatus:
+    pattern:  /updatestatus/{mirror}/{json}
+    defaults: { _controller: c0710204mirrorSitesiteBundle:Default:updatestatus }
+c0710204mirror_sitesite_repogen:
+    pattern:  /repogen
+    defaults: { _controller: c0710204mirrorSitesiteBundle:Default:repogen }

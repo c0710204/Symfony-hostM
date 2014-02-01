@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204bootstrapcrudBundle:Default:js.html.twig' %}
+{% block body -%}
+    <h1>{% block crud_title_show %}{% endblock %}</h1>
+
+   {% block crud_detail %}{% endblock %}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{% block crud_list %}{% endblock %}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{% block crud_table_row_edit %}{% endblock %}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+[32mLoading composer repositories with package information[0m
+[32mUpdating dependencies (including require-dev)[0m
+  - Installing [32mmopa/composer-bridge[0m ([33mv1.3.0[0m)
+    Downloading: [33mconnection...[0m    Downloading: [33m100%[0m         
+
+  - Installing [32mmopa/bootstrap-bundle[0m ([33mv3.0.0-beta3[0m)
+    Downloading: [33mconnection...[0m    Downloading: [33m100%[0m         
+
+  - Installing [32mtwbs/bootstrap[0m ([33mv3.0.0[0m)
+    Downloading: [33mconnection...[0m    Downloading: [33m100%[0m         
+
+mopa/bootstrap-bundle suggests installing knplabs/knp-paginator-bundle (~2.3)
+mopa/bootstrap-bundle suggests installing knplabs/knp-menu-bundle (~2.0@dev)
+mopa/bootstrap-bundle suggests installing mopa/bootstrap-sandbox-bundle (~2.3)
+mopa/bootstrap-bundle suggests installing craue/formflow-bundle (~2.0)
+mopa/bootstrap-bundle suggests installing jlong/sass-twitter-bootstrap (dev-master)
+[32mWriting lock file[0m
+[32mGenerating autoload files[0m
+[32mUpdating the "app/config/parameters.yml" file[0m
+Clearing the cache for the [32mdev[0m environment with debug [32mtrue[0m
+Installing assets using the [33mhard copy[0m option
+Installing assets for [33mSymfony\Bundle\FrameworkBundle[0m into [33mweb/bundles/framework[0m
+Installing assets for [33mc0710204\test\sy2Bundle[0m into [33mweb/bundles/c0710204testsy2[0m
+Installing assets for [33mAcme\DemoBundle[0m into [33mweb/bundles/acmedemo[0m
+Installing assets for [33mSensio\Bundle\DistributionBundle[0m into [33mweb/bundles/sensiodistribution[0m
+Checking SymlinkCreating Symlink: /var/web/host/Symfony/vendor/mopa/bootstrap-bundle/Mopa/Bundle/BootstrapBundle/Resources/public/bootstrap ... [32mOK[0m

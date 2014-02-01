@@ -1,0 +1,88 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204testsy2Bundle:host:js.html.twig' %}
+{% block body -%}   
+<div class="container">
+    <h1>
+        虚拟主机
+        <a class="btn btn-default" href="{{ path('host_new') }}">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>        
+        <button class="btn btn-primary btn-lg" data-toggle="modal"  onclick="loader('#myModal')">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </h1>
+    <!-- Modal -->
+    <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
+     
+    </div>
+    <!-- /.modal -->
+    <table class="records_list table-hover table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>宿主</th>
+                <th>刷新时间</th>
+                <th>信息</th>
+                <th>Web</th>
+                <th>Ftp</th>
+                <th>容量</th>
+                <th>流量</th>
+                <th>Cpu</th>
+                <th>内存</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('host_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>
+                    <a href="{{ entity.sites }}"></img>{{ entity.name }}</a>
+                </td>
+                <td>{% if entity.renewtime %}{{ entity.renewtime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td><pre>{{ entity.information }}</pre></td>
+
+                <td>
+                    <a href="http://{{ entity.hostSite }}">{{ entity.hostSite }}</a><br/>
+                    <a href="http://{{ entity.hostIp }}">{{ entity.hostIp }}</a><br/>
+                    {{ entity.hostUser }}/{{ entity.hostPass }}
+                </td>
+
+                <td>
+                    <a href="ftp://{{ entity.ftpSite }}">{{ entity.ftpSite }}</a><br/>
+                    {{ entity.ftpUser }}/{{ entity.ftpPass }}
+                </td>
+
+                <td>{{ entity.size }}M</td>
+                <td>{{ entity.bandwidth }}M</td>
+                <td>{{ entity.cputime }}</td>
+                <td>{{ entity.ram }}</td>
+                <td>
+                    <a class="btn btn-default" href="{{ path('host_edit', { 'id': entity.id }) }}">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>                    
+                    <a class="btn btn-default" href="{{ path('host_show', { 'id': entity.id }) }}">
+                        Detail<span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<script type="text/javascript">
+function loader(jqid)
+{
+$.ajax({
+    url: '{{ path('host_newmodal') }}',
+    type: 'GET',
+    dataType: 'html',
+    data: {},
+})
+.done(function(data1) {
+    $(jqid).html(data1);
+    $(jqid).modal();
+});
+}
+</script>
+</div>
+{% endblock %}

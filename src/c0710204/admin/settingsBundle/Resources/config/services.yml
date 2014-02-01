@@ -1,0 +1,7 @@
+parameters:
+#    c0710204adminsettings.example.class: c0710204\admin\settingsBundle\Example
+
+services:
+#    c0710204adminsettings.example:
+#        class: %c0710204adminsettings.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

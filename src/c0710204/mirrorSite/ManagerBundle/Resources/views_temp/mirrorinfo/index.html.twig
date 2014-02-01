@@ -1,0 +1,38 @@
+{% extends 'c0710204bootstrapcrudBundle:Default:crudindex.html.twig' %}
+{% block crud_title_list %}
+mirrorinfo list
+{% endblock  %}
+{% block crud_table_head %}
+                <th>路径</th>
+                <th>名称</th>
+                <th>标题</th>
+                <th>官方</th>
+                <th>介绍</th>
+                <th>维护者</th>
+{% endblock  %}
+{% block crud_table_row_id %}
+{{ path('mirrorinfo_show', { 'id': entity.id }) }}
+{% endblock %}
+{% block crud_table_row %}
+                <td>
+                        {{ entity.rootpath }}<br/>
+                        站点目录:<a href='http://mirrors.bistu.edu.cn/{{ entity.href }}'>{{ entity.href }}</a>
+                </td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.title }}</td>
+                <td>{%- if entity.official %} official{% else %} non-official{% endif -%}</td>
+                <td>{{ entity.intro }}</td>
+                <td><a href='{{ entity.workerLink }}'>{{ entity.workerName }}</a></td>
+{% endblock %}
+{% block crud_table_row_edit %}
+{{ path('mirrorinfo_edit', { 'id': entity.id }) }}
+{% endblock %}
+{% block crud_table_row_show %}
+{{ path('mirrorinfo_show', { 'id': entity.id }) }}
+{% endblock %}
+{% block crud_new %}
+{{ path('mirrorinfo_new') }}
+{% endblock %}
+{% block crud_newmodal %}
+{{ path('mirrorinfo_new') }}
+{% endblock %}

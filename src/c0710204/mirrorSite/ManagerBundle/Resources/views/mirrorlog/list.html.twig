@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+{% use 'c0710204bootstrapcrudBundle:Default:js.html.twig' %}
+{% block body -%}   
+<div class="container">
+    <h1>APT源更新日志</h1>
+	<table class="records_list table_hover table">
+        <thead>
+            	<th>文件名</th>
+				<th>时间</th>
+               	<th>大小</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+   		{% for item in list %}
+		<tr>
+            <td>{{item.filename}}</td>
+			<td>{{item.timestr}}</td>
+            <td>{{item.size}}</td>
+            <td>
+                <a class="btn btn-default" href="{{ path('mirrorlog_show', { 'logname': item.filename }) }}">
+                    <span class="glyphicon glyphicon-edit"></span>浏览
+                </a>                    
+            </td>
+        </tr>
+   		{% endfor %}
+    	</tbody>
+  	</table>
+</div >
+
+{% endblock %}
